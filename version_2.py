@@ -1,5 +1,14 @@
 import random
 import sys
+from enum import Enum
+
+
+class GBK(Enum):
+
+    GUNTING = 1
+    BATU = 2
+    KERTAS = 3
+
 
 title = "Permainan Gunting Batu Kertas"
 print(title.center(50, "="))
@@ -14,17 +23,18 @@ if pemain < 1 or pemain > 3:
 lawan_bot = random.choice("123")
 bot = int(lawan_bot)
 
-print("\nAnda memilih: " + pilihan_user)
-print("Bot memilih: " + lawan_bot)
+print("\nAnda memilih  : " + str(GBK(pemain)).replace('GBK.', ""))
+print("Bot memilih   : " + str(GBK(bot)).replace('GBK.', ""))
 
 
-if pilihan_user == 1 and bot == 3:
-    print("🥳 Anda menang!")
-elif pilihan_user == 3 and bot == 2:
-    print("🥳 Anda menang!")
-elif pilihan_user == 2 and bot == 1:
-    print("🥳 Anda menang!")
-elif pilihan_user == bot:
-    print("🤝 Permainan Seri!")
+if pemain == 1 and bot == 3:
+    print("\n🥳 Anda menang!")
+elif pemain == 3 and bot == 2:
+    print("\n🥳 Anda menang!")
+elif pemain == 2 and bot == 1:
+    print("\n🥳 Anda menang!")
+elif pemain == bot:
+    print("\n🤝 Permainan Seri!")
 else:
-    print("😢 Anda kalah!")
+    print("\n😢 Anda kalah!")
+    
